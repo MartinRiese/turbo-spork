@@ -1,0 +1,13 @@
+version: '3'
+services:
+    database:
+        image: 'mongo'
+        container_name: turbo-spork-db
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+            - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+            - MONGO_INIT_DATABASE=${DB_NAME}
+        ports:
+            - 27017:27017
+        volumes:
+            - ./mongodata:/data/db
